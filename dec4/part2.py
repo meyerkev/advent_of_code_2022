@@ -7,6 +7,7 @@ def parse_line(line):
 
     return pair
 
+
 def detect_partial_overlap(pair):
     # (2, 3) (3, 4) -> True
     # 3 >= 3 and 2 <= 4
@@ -14,9 +15,10 @@ def detect_partial_overlap(pair):
         return True
     # (3, 4) (2, 3) -> True
     # 3 >= 3 and 4 <= 2
-    elif pair[0][0] <= pair[1][1] and pair[0][1] >= pair[1][0]:
+    if pair[0][0] <= pair[1][1] and pair[0][1] >= pair[1][0]:
         return True
     return False
+
 
 def main():
     with open('input.txt') as f:
@@ -26,7 +28,7 @@ def main():
             if detect_partial_overlap(pair):
                 count += 1
         return count
-            
+
 
 if __name__ == "__main__":
     print(main())

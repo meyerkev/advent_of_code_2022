@@ -1,11 +1,11 @@
 
 def item_priority(c):
-    if c >= 'A' and c <= 'Z':
+    if 'A' <= c <= 'Z':
         return ord(c) - ord('A') + 27
-    elif c >= 'a' and c <= 'z':
+    if 'a' <= c <= 'z':
         return ord(c) - ord('a') + 1
-    else:
-        raise ValueError("Invalid character %s" % c)
+    
+    raise ValueError(f"Invalid character {c}")
 
 
 def three_lines(f):
@@ -16,10 +16,12 @@ def three_lines(f):
             yield lines
             lines = []
 
+
 def badge_priority(group):
     set1, set2, set3 = set(group[0]), set(group[1]), set(group[2])
     matching_item = set1.intersection(set2).intersection(set3).pop()
     return item_priority(matching_item)
+
 
 def main():
     with open('input.txt') as f:
@@ -28,6 +30,7 @@ def main():
             total_priority += badge_priority(group)
 
     return total_priority
+
 
 if __name__ == "__main__":
     print(main())

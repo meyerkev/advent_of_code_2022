@@ -27,32 +27,34 @@ Input line format is:
 """
 
 SCORES = {
-    "X" : {  # They play rock
+    "X": {  # They play rock
         "A": 3,  # Play scissors, so 3
         "B": 1,  # Rock
         "C": 2,  # Paper
-    }, 
+    },
     "Y": {  # Draw is 3
-        "A": 4, 
+        "A": 4,
         "B": 5,
         "C": 6
     },
     "Z": {  # Win is 6
-        "A": 8, # Paper
-        "B": 9, # Scissors
+        "A": 8,  # Paper
+        "B": 9,  # Scissors
         "C": 7  # Rock
     },
 }
 
+
 def main():
     with open('input.txt') as f:
-        total_score = 0 
+        total_score = 0
         for line in f:
             their_move, your_move = line.strip().split()
             print(SCORES[your_move][their_move])
             total_score += SCORES[your_move][their_move]
 
     return total_score
+
 
 if __name__ == "__main__":
     print(main())

@@ -15,11 +15,11 @@ Input line format is:
 """
 
 SCORES = {
-    "X" : {
+    "X": {
         "A": 4,
         "B": 1,
         "C": 7
-    }, 
+    },
     "Y": {
         "A": 8,
         "B": 5,
@@ -32,15 +32,17 @@ SCORES = {
     },
 }
 
+
 def main():
     with open('input.txt') as f:
-        total_score = 0 
+        total_score = 0
         for line in f:
             their_move, your_move = line.strip().split()
             print(their_move, your_move, SCORES[your_move][their_move])
             total_score += SCORES[your_move][their_move]
 
     return total_score
+
 
 if __name__ == "__main__":
     print(main())

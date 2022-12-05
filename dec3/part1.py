@@ -1,11 +1,12 @@
 
 def item_priority(c):
-    if c >= 'A' and c <= 'Z':
+    if 'A' <= c <= 'Z':
         return ord(c) - ord('A') + 27
-    elif c >= 'a' and c <= 'z':
+    if 'a' <= c <= 'z':
         return ord(c) - ord('a') + 1
-    else:
-        raise ValueError("Invalid character %s" % c)
+
+    raise ValueError(f"Invalid character {c}")
+
 
 def sack_priority(line):
     part1, part2 = set(line[:len(line)//2]), set(line[len(line)//2:])
@@ -20,6 +21,7 @@ def main():
             total_priority += sack_priority(line.strip())
 
     return total_priority
+
 
 if __name__ == "__main__":
     print(main())
