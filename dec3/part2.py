@@ -4,7 +4,7 @@ def item_priority(c):
         return ord(c) - ord('A') + 27
     if 'a' <= c <= 'z':
         return ord(c) - ord('a') + 1
-    
+
     raise ValueError(f"Invalid character {c}")
 
 
